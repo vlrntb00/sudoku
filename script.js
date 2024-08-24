@@ -13,6 +13,12 @@ function handleCentryClick(event) {
   window[`s${target.id}`].classList.add('hidden');
 }
 
+function handleSentryClick(event) {
+  let target = document.getElementsByClassName('highlighted')[0];
+  if (!target) return;
+  window[`s${target.id}`].children[this.innerText - 1].classList.add('hidden');
+}
+
 for (let i = 0; i < 81; i++) {
   let entry = document.createElement('div');
   entry.id = `entry${i}`;
@@ -48,6 +54,7 @@ for (let i = 0; i < 81; i++) {
 for (let i = 1; i <= 9; i++) {
   let child = document.createElement('div');
   child.innerText = i;
+  child.addEventListener('click', handleSentryClick.bind(child));
   window.selsentry.appendChild(child);
   child = document.createElement('div');
   child.innerText = i;
