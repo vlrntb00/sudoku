@@ -1,6 +1,6 @@
 body {
   background-color: #282A36;
-  color: #BD93F9;
+  color: #F8F8F2;
   margin: auto;
   text-align: center;
 }
@@ -13,6 +13,7 @@ div {
   position: relative;
   float: left;
   padding: 3px;
+  padding-bottom: 0px;
   border: 1px solid #282A36;
 }
 
@@ -28,13 +29,17 @@ div {
   border: 1px solid #FFB86C;
 }
 
-.sentry {
+.sentryd {
   width: 10px;
   height: 10px;
   line-height: 10px;
   text-align: center;
   font-size: 8px;
   float: left;
+  color: #BD93F9;
+}
+#selsentry {
+  color: #BD93F9;
 }
 
 .newline {
@@ -42,9 +47,20 @@ div {
 }
 
 .centry {
-  visibility: hidden;
   position: absolute;
   left: 40%;
-  top: 40%;
+  top: 30%;
+  color: #8BE9FD;
+}
+#selcentry {
+  color: #8BE9FD;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#selsentry > div, #selcentry > div, #seldigits > div {
+  padding: 10px;
 }
 

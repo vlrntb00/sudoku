@@ -3,8 +3,14 @@ function handleEntryClick(event) {
     e.classList.remove('highlighted');
   }
   this.classList.add('highlighted');
-  event.preventDefault();
-  return false;
+}
+
+function handleCentryClick(event) {
+  let target = document.getElementsByClassName('highlighted')[0];
+  if (!target) return;
+  window[`c${target.id}`].innerText = this.innerText;
+  window[`c${target.id}`].classList.remove('hidden');
+  window[`s${target.id}`].classList.add('hidden');
 }
 
 for (let i = 0; i < 81; i++) {
@@ -20,22 +26,35 @@ for (let i = 0; i < 81; i++) {
   let centry = document.createElement('div');
   centry.id = `centry${i}`;
   centry.classList.add('centry');
+  centry.classList.add('hidden');
   centry.innerText = '0';
   entry.appendChild(centry);
 
-  let sentries = document.createElement('div');
-  sentries.id = `sentries${i}`;
-  sentries.classList.add('sentries');
-  entry.appendChild(sentries);
+  let sentry = document.createElement('div');
+  sentry.id = `sentry${i}`;
+  sentry.classList.add('sentry');
+  entry.appendChild(sentry);
 
   for (let k = 0; k < 9; k++) {
-    let sentry = document.createElement('div');
-    sentry.id = `sentry${k}`;
-    sentry.classList.add('sentry');
-    if (k % 3 === 0) sentry.classList.add('newline');
-    sentry.innerText = k + 1;
-    sentries.appendChild(sentry);
+    let sentryd = document.createElement('div');
+    sentryd.id = `sentryd${k}`;
+    sentryd.classList.add('sentryd');
+    if (k % 3 === 0) sentryd.classList.add('newline');
+    sentryd.innerText = k + 1;
+    sentry.appendChild(sentryd);
   }
 }
 
+for (let i = 1; i <= 9; i++) {
+  let child = document.createElement('div');
+  child.innerText = i;
+  window.selsentry.appendChild(child);
+  child = document.createElement('div');
+  child.innerText = i;
+  child.addEventListener('click', handleCentryClick.bind(child));
+  window.selcentry.appendChild(child);
+  child = document.createElement('div');
+  child.innerText = i;
+  window.seldigits.appendChild(child);
+}
 
