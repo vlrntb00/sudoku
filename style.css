@@ -1,7 +1,8 @@
 body {
   background-color: #282A36;
-  color: #F8F8F2;
+  color: #FF79C6;
   margin: auto;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -9,20 +10,40 @@ div {
   display: inline-block;
 }
 
+#entries {
+  padding-bottom: 30px;
+}
+
 .entry {
   position: relative;
   float: left;
   padding: 3px;
   padding-bottom: 0px;
-  border: 1px solid #282A36;
+  border: 1px solid #44475A;
 }
 
 .rightborder {
-  border-right: 1px solid #44475A;
+  border-right: 1px solid #6272A4;
 }
 
 .bottomborder {
-  border-bottom: 1px solid #44475A;
+  border-bottom: 1px solid #6272A4;
+}
+
+.noleftborder {
+  border-left: 1px solid #282A36;
+}
+
+.notopborder {
+  border-top: 1px solid #282A36;
+}
+
+.norightborder {
+  border-right: 1px solid #282A36;
+}
+
+.nobottomborder {
+  border-bottom: 1px solid #282A36;
 }
 
 .highlighted {
@@ -36,10 +57,10 @@ div {
   text-align: center;
   font-size: 8px;
   float: left;
-  color: #BD93F9;
+  color: #F1FA8C;
 }
 #selsentry {
-  color: #BD93F9;
+  color: #F1FA8C;
 }
 
 .newline {
@@ -48,19 +69,26 @@ div {
 
 .centry {
   position: absolute;
-  left: 40%;
-  top: 30%;
-  color: #8BE9FD;
+  padding: 6px 11px;
+  color: #50FA7B;
 }
 #selcentry {
-  color: #8BE9FD;
+  color: #50FA7B;
+}
+.highlighteddigit {
+  background-color: #44475A;
 }
 
 .hidden {
   visibility: hidden;
 }
 
+#selsentry {
+  width: 90vh;
+}
+
 #selsentry > div, #selcentry > div, #seldigits > div {
+  border: 1px solid #44475A;
   padding: 10px;
 }
 
