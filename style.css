@@ -1,14 +1,13 @@
 body {
   background-color: #282A36;
   color: #6272A4;
-  font-size: 24px;
 }
 
 table {
   border-collapse: collapse;
 }
 
-td {
+#board > tr > td {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -16,11 +15,24 @@ td {
   text-align: center;
 }
 
-td:nth-child(3), td:nth-child(6) {
+#board > tr > td:nth-child(3), #board > tr > td:nth-child(6) {
   border-right: 1px solid #44475A;
 }
 
-tr:nth-child(3), tr:nth-child(6) {
+#board > tr:nth-child(3), #board > tr:nth-child(6) {
   border-bottom: 1px solid #44475A;
+}
+
+.entries {
+  line-height: 10px;
+}
+
+.entries > tr > td {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  text-align: center;
+  font-size: 8px;
 }
 
