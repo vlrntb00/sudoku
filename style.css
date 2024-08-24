@@ -1,6 +1,6 @@
 body {
   background-color: #282A36;
-  color: #6272A4;
+  color: #8BE9FD;
 }
 
 table {
@@ -26,6 +26,11 @@ table {
 .entries {
   line-height: 10px;
   position: relative;
+  border: 1px solid #282A36;
+}
+
+.highlighted-entry {
+  border: 1px solid #BD93F9;
 }
 
 .entries > tr > td {

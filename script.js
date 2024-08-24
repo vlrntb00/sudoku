@@ -1,3 +1,12 @@
+function handleEntryClick(event) {
+  for (let e of Array.from(document.getElementsByClassName('highlighted-entry'))) {
+    e.classList.remove('highlighted-entry');
+  }
+  this.classList.add('highlighted-entry');
+  event.preventDefault();
+  return false;
+}
+
 for (let i = 0; i < 9; i++) {
   window.board.appendChild(document.createElement('tr'));
   for (let j = 0; j < 9; j++) {
@@ -11,6 +20,7 @@ for (let i = 0; i < 9; i++) {
     committedEntry.id = `centry${i}${j}`;
     entries.appendChild(committedEntry);
     committedEntry.innerText = '0';
+    entries.addEventListener('click', handleEntryClick.bind(entries));
     for (let k = 1; k < 4; k++) {
       entries.appendChild(document.createElement('tr'));
       for (let l = 0; l < 3; l++) {
