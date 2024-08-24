@@ -1,8 +1,8 @@
 function handleEntryClick(event) {
-  for (let e of Array.from(document.getElementsByClassName('highlighted-entry'))) {
-    e.classList.remove('highlighted-entry');
+  for (let e of Array.from(document.getElementsByClassName('highlighted'))) {
+    e.classList.remove('highlighted');
   }
-  this.parentElement.classList.add('highlighted-entry');
+  this.classList.add('highlighted');
   event.preventDefault();
   return false;
 }

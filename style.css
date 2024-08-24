@@ -13,7 +13,7 @@ div {
   position: relative;
   float: left;
   padding: 3px;
-  border-right: 1px solid #282A36;
+  border: 1px solid #282A36;
 }
 
 .rightborder {
@@ -22,6 +22,10 @@ div {
 
 .bottomborder {
   border-bottom: 1px solid #44475A;
+}
+
+.highlighted {
+  border: 1px solid #FFB86C;
 }
 
 .sentry {
