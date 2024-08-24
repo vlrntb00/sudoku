@@ -25,6 +25,7 @@ table {
 
 .entries {
   line-height: 10px;
+  position: relative;
 }
 
 .entries > tr > td {
@@ -34,5 +35,12 @@ table {
   line-height: 10px;
   text-align: center;
   font-size: 8px;
+  visibility: hidden;
+}
+
+.entries > div {
+  position: absolute;
+  left: 40%;
+  top: 40%;
 }
 
