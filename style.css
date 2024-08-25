@@ -2,10 +2,10 @@ body {
   background-color: #282A36;
   color: #FF79C6;
   margin: auto;
-  padding-top: 40px;
+  padding-top: 5vh;
   text-align: center;
-  transform: scale(2);
-  transform-origin: 0 0;
+  font-size: 3vh;
+  font-family: monospace;
 }
 
 div {
@@ -13,14 +13,14 @@ div {
 }
 
 #entries {
-  padding-bottom: 30px;
+  padding-bottom: 5vh;
 }
 
 .entry {
   position: relative;
   float: left;
-  padding: 3px;
-  padding-bottom: 0px;
+  padding: 0.6vh;
+  padding-bottom: 0vh;
   border: 1px dotted #44475A;
 }
 
@@ -53,11 +53,12 @@ div {
 }
 
 .sentryd {
-  width: 10px;
-  height: 10px;
-  line-height: 10px;
+  width: 1vh;
+  height: 1vh;
+  line-height: 1vh;
   text-align: center;
-  font-size: 8px;
+  font-size: 1vh;
+  padding-top: 0.1vh;
   float: left;
   color: #F1FA8C;
 }
@@ -72,7 +73,7 @@ div {
 
 .centry {
   position: absolute;
-  padding: 6px 11px;
+  width: 66%;
   color: #CCCCCC;
 }
 #selcentry {
@@ -89,6 +90,6 @@ div {
 
 #selsentry > div, #selcentry > div, #seldigits > div {
   border: 1px solid #44475A;
-  padding: 10px;
+  padding: 0.5vh;
 }
 
