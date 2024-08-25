@@ -19,7 +19,7 @@ div {
   float: left;
   padding: 3px;
   padding-bottom: 0px;
-  border: 1px solid #44475A;
+  border: 1px dotted #44475A;
 }
 
 .rightborder {
@@ -60,6 +60,7 @@ div {
   color: #F1FA8C;
 }
 #selsentry {
+  display: block;
   color: #F1FA8C;
 }
 
@@ -70,10 +71,11 @@ div {
 .centry {
   position: absolute;
   padding: 6px 11px;
-  color: #50FA7B;
+  color: #CCCCCC;
 }
 #selcentry {
-  color: #50FA7B;
+  display: block;
+  color: #CCCCCC;
 }
 .highlighteddigit {
   background-color: #44475A;
@@ -81,10 +83,6 @@ div {
 
 .hidden {
   visibility: hidden;
-}
-
-#selsentry {
-  width: 90vh;
 }
 
 #selsentry > div, #selcentry > div, #seldigits > div {

@@ -1,3 +1,30 @@
+let puzzle = '600050007030000000080409200015300000008000300000007590009501030000000080200070004';
+
+function serialize() {
+  let board = [];
+  for (let i = 0; i < 81; i++) {
+    let entry = [];
+    if (!window[`centry${i}`].classList.contains('hidden')) {
+      entry.push(window[`centry${i}`].innerText);
+    } else {
+      for (let k = 0; k < 9; k++) {
+        if (!window[`sentry${i}d${k}`].classList.contains('hidden')) {
+          entry.push(window[`sentry${i}d${k}`].innerText);
+        }
+      }
+    }
+    board.push(entry);
+  }
+  return board;
+}
+
+// function validate(board, state=[], i=0) {
+//  if (i === 81) return true;
+//  for (let v of board[i]) {
+//    
+//  }
+// }
+
 function handleEntryClick(event) {
   for (let e of Array.from(document.getElementsByClassName('highlighted'))) {
     e.classList.remove('highlighted');
@@ -109,4 +136,10 @@ child = document.createElement('div');
 child.innerText = 'C';
 child.addEventListener('click', handleDigitClick.bind(child));
 window.seldigits.appendChild(child);
+
+puzzle.split('').forEach((c, i) => {
+  if (c === '0') return;
+  window[`centry${i}`].innerText = c;
+  window[`centry${i}`].classList.remove('hidden');
+})
 
