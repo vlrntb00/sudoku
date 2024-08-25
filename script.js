@@ -50,6 +50,10 @@ function handleEntryClick(event) {
 function handleCentryClick(event) {
   let target = document.getElementsByClassName('highlighted')[0];
   if (!target) return;
+  if (this.innerText !== solution[target.id.replace('entry', '')]) {
+    alert('incorrect action prevented');
+    return;
+  }
   window[`c${target.id}`].innerText = this.innerText;
   window[`c${target.id}`].classList.remove('hidden');
   window[`s${target.id}`].classList.add('hidden');
@@ -69,6 +73,10 @@ function handleSentryClick(event) {
       window[`s${target.id}`].classList.toggle('hidden');
     }
   } else {
+    if (this.innerText === solution[target.id.replace('entry', '')]) {
+      alert('incorrect action prevented');
+      return;
+    }
     window[`s${target.id}`].children[this.innerText - 1].classList.add('hidden');
   }
 }
