@@ -1,29 +1,44 @@
 let puzzle = '600050007030000000080409200015300000008000300000007590009501030000000080200070004';
 
-function serialize() {
-  let board = [];
-  for (let i = 0; i < 81; i++) {
-    let entry = [];
-    if (!window[`centry${i}`].classList.contains('hidden')) {
-      entry.push(window[`centry${i}`].innerText);
-    } else {
-      for (let k = 0; k < 9; k++) {
-        if (!window[`sentry${i}d${k}`].classList.contains('hidden')) {
-          entry.push(window[`sentry${i}d${k}`].innerText);
+function solve(state, i=0) {
+  if (i === 81) {
+    return state;
+  }
+  if (state[i] !== '0') {
+    return solve(state, i + 1);
+  }
+  attempt: for (let vi = 1; vi <= 9; vi++) {
+    let v = `${vi}`;
+    for (let c = i % 9; c < 81; c += 9) {
+      if (state[c] === v) {
+        continue attempt;
+      }
+    }
+    let rl = 9 * Math.floor(i / 9);
+    let rh = rl + 9;
+    for (let r = rl; r < rh; r++) {
+      if (state[r] === v) {
+        continue attempt;
+      }
+    }
+    let gr = 3 * Math.floor(Math.floor(i / 9) / 3);
+    let gc = 3 * Math.floor((i % 9) / 3);
+    for (let gi = 0; gi < 3; gi++) {
+      for (let gj = 0; gj < 3; gj++) {
+        if (state[9 * (gr + gi) + (gc + gj)] === v) {
+          continue attempt;
         }
       }
     }
-    board.push(entry);
+    state[i] = v;
+    if (solve(state, i + 1)) {
+      return state;
+    }
+    state[i] = '0';
   }
-  return board;
 }
 
-// function validate(board, state=[], i=0) {
-//  if (i === 81) return true;
-//  for (let v of board[i]) {
-//    
-//  }
-// }
+let solution = solve(puzzle.split(''));
 
 function handleEntryClick(event) {
   for (let e of Array.from(document.getElementsByClassName('highlighted'))) {
