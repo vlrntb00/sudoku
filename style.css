@@ -2,8 +2,10 @@ body {
   background-color: #282A36;
   color: #FF79C6;
   margin: auto;
-  padding-top: 20px;
+  padding-top: 40px;
   text-align: center;
+  transform: scale(2);
+  transform-origin: 0 0;
 }
 
 div {
