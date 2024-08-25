@@ -90,7 +90,8 @@ div {
 
 #selsentry > div, #selcentry > div, #seldigits > div {
   border: 2px solid #44475A;
-  margin: 0.8vh;
+  margin: 0.6vh;
+  padding: 0.3vh;
   font-size: 3.5vh;
 }
 
