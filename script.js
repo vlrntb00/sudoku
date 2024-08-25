@@ -45,14 +45,20 @@ function handleEntryClick(event) {
     e.classList.remove('highlighted');
   }
   this.classList.toggle('highlighted');
+  event.preventDefault();
+  return false;
 }
 
 function handleCentryClick(event) {
   let target = document.getElementsByClassName('highlighted')[0];
-  if (!target) return;
+  if (!target) {
+    event.preventDefault();
+    return false;
+  }
   if (this.innerText !== solution[target.id.replace('entry', '')]) {
     alert('incorrect action prevented');
-    return;
+    event.preventDefault();
+    return false;
   }
   window[`c${target.id}`].innerText = this.innerText;
   window[`c${target.id}`].classList.remove('hidden');
@@ -63,11 +69,16 @@ function handleCentryClick(event) {
   } else {
     window[`c${target.id}`].classList.remove('highlighteddigit');
   }
+  event.preventDefault();
+  return false;
 }
 
 function handleSentryClick(event) {
   let target = document.getElementsByClassName('highlighted')[0];
-  if (!target) return;
+  if (!target) {
+    event.preventDefault();
+    return false;
+  }
   if (this.innerText === 'V') {
     if (window[`c${target.id}`].classList.contains('hidden')) {
       window[`s${target.id}`].classList.toggle('hidden');
@@ -75,10 +86,13 @@ function handleSentryClick(event) {
   } else {
     if (this.innerText === solution[target.id.replace('entry', '')]) {
       alert('incorrect action prevented');
-      return;
+      event.preventDefault();
+      return false;
     }
     window[`s${target.id}`].children[this.innerText - 1].classList.add('hidden');
   }
+  event.preventDefault();
+  return false;
 }
 
 function handleDigitClick(event) {
@@ -96,6 +110,8 @@ function handleDigitClick(event) {
       }
     }
   }
+  event.preventDefault();
+  return false;
 }
 
 for (let i = 0; i < 81; i++) {
@@ -111,6 +127,7 @@ for (let i = 0; i < 81; i++) {
   if (Math.floor(i / 9) === 8) entry.classList.add('nobottomborder');
   window.entries.appendChild(entry);
   entry.addEventListener('touchstart', handleEntryClick.bind(entry));
+  entry.addEventListener('mousedown', handleEntryClick.bind(entry));
 
   let centry = document.createElement('div');
   centry.id = `centry${i}`;
@@ -139,25 +156,30 @@ for (let i = 1; i <= 9; i++) {
   let child = document.createElement('div');
   child.innerText = i;
   child.addEventListener('touchstart', handleSentryClick.bind(child));
+  child.addEventListener('mousedown', handleSentryClick.bind(child));
   window.selsentry.appendChild(child);
   child = document.createElement('div');
   child.innerText = i;
   child.addEventListener('touchstart', handleCentryClick.bind(child));
+  child.addEventListener('mousedown', handleCentryClick.bind(child));
   window.selcentry.appendChild(child);
   child = document.createElement('div');
   child.innerText = i;
   child.addEventListener('touchstart', handleDigitClick.bind(child));
+  child.addEventListener('mousedown', handleDigitClick.bind(child));
   window.seldigits.appendChild(child);
 }
 
 let child = document.createElement('div');
 child.innerText = 'V';
 child.addEventListener('touchstart', handleSentryClick.bind(child));
+child.addEventListener('mousedown', handleSentryClick.bind(child));
 window.selsentry.appendChild(child);
 
 child = document.createElement('div');
 child.innerText = 'C';
 child.addEventListener('touchstart', handleDigitClick.bind(child));
+child.addEventListener('mousedown', handleDigitClick.bind(child));
 window.seldigits.appendChild(child);
 
 puzzle.split('').forEach((c, i) => {
@@ -167,3 +189,11 @@ puzzle.split('').forEach((c, i) => {
   window[`centry${i}`].classList.add('fixed');
 })
 
+document.body.addEventListener('touchstart', function (event) {
+  event.preventDefault();
+  return false;
+});
+document.body.addEventListener('mousedown', function (event) {
+  event.preventDefault();
+  return false;
+});
