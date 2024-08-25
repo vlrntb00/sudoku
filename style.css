@@ -2,7 +2,7 @@ body {
   background-color: #282A36;
   color: #FF79C6;
   margin: auto;
-  padding-top: 5vh;
+  padding-top: 10vh;
   text-align: center;
   font-size: 3vh;
   font-family: monospace;
@@ -21,35 +21,35 @@ div {
   float: left;
   padding: 0.6vh;
   padding-bottom: 0vh;
-  border: 1px dotted #44475A;
+  border: 2px dotted #44475A;
 }
 
 .rightborder {
-  border-right: 1px solid #6272A4;
+  border-right: 2px solid #6272A4;
 }
 
 .bottomborder {
-  border-bottom: 1px solid #6272A4;
+  border-bottom: 2px solid #6272A4;
 }
 
 .noleftborder {
-  border-left: 1px solid #282A36;
+  border-left: 2px solid #282A36;
 }
 
 .notopborder {
-  border-top: 1px solid #282A36;
+  border-top: 2px solid #282A36;
 }
 
 .norightborder {
-  border-right: 1px solid #282A36;
+  border-right: 2px solid #282A36;
 }
 
 .nobottomborder {
-  border-bottom: 1px solid #282A36;
+  border-bottom: 2px solid #282A36;
 }
 
 .highlighted {
-  border: 1px solid #FFB86C;
+  border: 2px solid #FFB86C;
 }
 
 .sentryd {
@@ -89,7 +89,8 @@ div {
 }
 
 #selsentry > div, #selcentry > div, #seldigits > div {
-  border: 1px solid #44475A;
-  padding: 0.5vh;
+  border: 2px solid #44475A;
+  margin: 0.8vh;
+  font-size: 3.5vh;
 }
 
