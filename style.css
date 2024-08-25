@@ -1,6 +1,6 @@
 body {
   background-color: #282A36;
-  color: #FF79C6;
+  color: #CCCCCC;
   margin: auto;
   padding-top: 10vh;
   text-align: center;
@@ -74,14 +74,17 @@ div {
 .centry {
   position: absolute;
   width: 66%;
-  color: #CCCCCC;
+  color: #8BE9FD;
 }
 #selcentry {
   display: block;
-  color: #CCCCCC;
+  color: #8BE9FD;
 }
 .highlighteddigit {
   background-color: #44475A;
+}
+.fixed {
+  color: #CCCCCC;
 }
 
 .hidden {

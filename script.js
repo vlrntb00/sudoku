@@ -141,5 +141,6 @@ puzzle.split('').forEach((c, i) => {
   if (c === '0') return;
   window[`centry${i}`].innerText = c;
   window[`centry${i}`].classList.remove('hidden');
+  window[`centry${i}`].classList.add('fixed');
 })
 
