@@ -87,7 +87,7 @@ for (let i = 0; i < 81; i++) {
   if (Math.floor(i / 9) === 0) entry.classList.add('notopborder');
   if (Math.floor(i / 9) === 8) entry.classList.add('nobottomborder');
   window.entries.appendChild(entry);
-  entry.addEventListener('click', handleEntryClick.bind(entry));
+  entry.addEventListener('touchstart', handleEntryClick.bind(entry));
 
   let centry = document.createElement('div');
   centry.id = `centry${i}`;
@@ -115,26 +115,26 @@ for (let i = 0; i < 81; i++) {
 for (let i = 1; i <= 9; i++) {
   let child = document.createElement('div');
   child.innerText = i;
-  child.addEventListener('click', handleSentryClick.bind(child));
+  child.addEventListener('touchstart', handleSentryClick.bind(child));
   window.selsentry.appendChild(child);
   child = document.createElement('div');
   child.innerText = i;
-  child.addEventListener('click', handleCentryClick.bind(child));
+  child.addEventListener('touchstart', handleCentryClick.bind(child));
   window.selcentry.appendChild(child);
   child = document.createElement('div');
   child.innerText = i;
-  child.addEventListener('click', handleDigitClick.bind(child));
+  child.addEventListener('touchstart', handleDigitClick.bind(child));
   window.seldigits.appendChild(child);
 }
 
 let child = document.createElement('div');
 child.innerText = 'V';
-child.addEventListener('click', handleSentryClick.bind(child));
+child.addEventListener('touchstart', handleSentryClick.bind(child));
 window.selsentry.appendChild(child);
 
 child = document.createElement('div');
 child.innerText = 'C';
-child.addEventListener('click', handleDigitClick.bind(child));
+child.addEventListener('touchstart', handleDigitClick.bind(child));
 window.seldigits.appendChild(child);
 
 puzzle.split('').forEach((c, i) => {
