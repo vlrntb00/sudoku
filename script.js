@@ -162,6 +162,7 @@ puzzle.split('').forEach((c, i) => {
 function handleClick(event) {
   if (this.classList.contains('inputhighlight')) handleDigitClick.call(this, event);
   else if (this.classList.contains('inputfinalized')) handleCentryClick.call(this, event);
+  else handleSentryClick.call(this, event);
 }
 
 for (let i = 1; i <= 9; i++) {
@@ -194,6 +195,22 @@ function selectInputFinalized(event) {
 }
 inputfinalized.addEventListener('touchstart', selectInputFinalized);
 inputfinalized.addEventListener('mousedown', selectInputFinalized);
+
+function selectInputSpeculate(event) {
+  for (let e of Array.from(document.getElementsByClassName('inputdigit'))) {
+    e.classList.remove('inputfinalized');
+    e.classList.remove('inputhighlight');
+    e.classList.add('inputspeculate');
+  }
+  let target = document.getElementsByClassName('highlighted')[0];
+  if (!target) {
+    event.preventDefault();
+    return false;
+  }
+  window[`s${target.id}`].classList.toggle('hidden');
+}
+inputspeculate.addEventListener('touchstart', selectInputSpeculate);
+inputspeculate.addEventListener('mousedown', selectInputSpeculate);
 
 document.body.addEventListener('touchstart', function (event) {
   event.preventDefault();
