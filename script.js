@@ -152,42 +152,26 @@ for (let i = 0; i < 81; i++) {
   }
 }
 
-for (let i = 1; i <= 9; i++) {
-  let child = document.createElement('div');
-  child.innerText = i;
-  child.addEventListener('touchstart', handleSentryClick.bind(child));
-  child.addEventListener('mousedown', handleSentryClick.bind(child));
-  window.selsentry.appendChild(child);
-  child = document.createElement('div');
-  child.innerText = i;
-  child.addEventListener('touchstart', handleCentryClick.bind(child));
-  child.addEventListener('mousedown', handleCentryClick.bind(child));
-  window.selcentry.appendChild(child);
-  child = document.createElement('div');
-  child.innerText = i;
-  child.addEventListener('touchstart', handleDigitClick.bind(child));
-  child.addEventListener('mousedown', handleDigitClick.bind(child));
-  window.seldigits.appendChild(child);
-}
-
-let child = document.createElement('div');
-child.innerText = 'V';
-child.addEventListener('touchstart', handleSentryClick.bind(child));
-child.addEventListener('mousedown', handleSentryClick.bind(child));
-window.selsentry.appendChild(child);
-
-child = document.createElement('div');
-child.innerText = 'C';
-child.addEventListener('touchstart', handleDigitClick.bind(child));
-child.addEventListener('mousedown', handleDigitClick.bind(child));
-window.seldigits.appendChild(child);
-
 puzzle.split('').forEach((c, i) => {
   if (c === '0') return;
   window[`centry${i}`].innerText = c;
   window[`centry${i}`].classList.remove('hidden');
   window[`centry${i}`].classList.add('fixed');
 })
+
+function handleClick() {
+  // TODO
+}
+
+for (let i = 1; i <= 9; i++) {
+  let child = document.createElement('div');
+  child.innerText = i;
+  child.classList.add('inputdigit');
+  child.classList.add('inputhighlight');
+  child.addEventListener('touchstart', handleDigitClick.bind(child));
+  child.addEventListener('mousedown', handleDigitClick.bind(child));
+  inputs.appendChild(child);
+}
 
 document.body.addEventListener('touchstart', function (event) {
   event.preventDefault();

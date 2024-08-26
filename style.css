@@ -80,21 +80,39 @@ div {
   display: block;
   color: #8BE9FD;
 }
-.highlighteddigit {
-  background-color: #44475A;
-}
 .fixed {
   color: #CCCCCC;
+}
+.highlighteddigit {
+  background-color: #44475A;
+  color: #F1FA8C;
 }
 
 .hidden {
   visibility: hidden;
 }
 
-#selsentry > div, #selcentry > div, #seldigits > div {
+#inputs > div {
   border: 2px solid #44475A;
-  margin: 0.6vh;
-  padding: 0.3vh;
+  margin: 1vh;
+  padding: 2vh;
   font-size: 3.5vh;
+  float: left;
+}
+
+.inputdigit:nth-child(4), .inputdigit:nth-child(7), .inputdigit:nth-child(10) {
+  clear: left;
+}
+
+.inputhighlight {
+  color: #F1FA8C;
+}
+
+.inputspeculate {
+  color: #FFB86C;
+}
+
+.inputfinalized {
+  color: #8BE9FD;
 }
 
