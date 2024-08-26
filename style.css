@@ -16,10 +16,6 @@ div {
   display: inline-block;
 }
 
-#entries {
-  padding-bottom: 2vh;
-}
-
 .entry {
   position: relative;
   float: left;
