@@ -159,8 +159,9 @@ puzzle.split('').forEach((c, i) => {
   window[`centry${i}`].classList.add('fixed');
 })
 
-function handleClick() {
-  // TODO
+function handleClick(event) {
+  if (this.classList.contains('inputhighlight')) handleDigitClick.call(this, event);
+  else if (this.classList.contains('inputfinalized')) handleCentryClick.call(this, event);
 }
 
 for (let i = 1; i <= 9; i++) {
@@ -168,10 +169,31 @@ for (let i = 1; i <= 9; i++) {
   child.innerText = i;
   child.classList.add('inputdigit');
   child.classList.add('inputhighlight');
-  child.addEventListener('touchstart', handleDigitClick.bind(child));
-  child.addEventListener('mousedown', handleDigitClick.bind(child));
+  child.addEventListener('touchstart', handleClick.bind(child));
+  child.addEventListener('mousedown', handleClick.bind(child));
   inputs.appendChild(child);
 }
+
+function selectInputHighlight(event) {
+  for (let e of Array.from(document.getElementsByClassName('inputdigit'))) {
+    e.classList.remove('inputspeculate');
+    e.classList.remove('inputfinalized');
+    e.classList.add('inputhighlight');
+  }
+  handleDigitClick.call({}, event);
+}
+inputhighlight.addEventListener('touchstart', selectInputHighlight);
+inputhighlight.addEventListener('mousedown', selectInputHighlight);
+
+function selectInputFinalized(event) {
+  for (let e of Array.from(document.getElementsByClassName('inputdigit'))) {
+    e.classList.remove('inputspeculate');
+    e.classList.remove('inputhighlight');
+    e.classList.add('inputfinalized');
+  }
+}
+inputfinalized.addEventListener('touchstart', selectInputFinalized);
+inputfinalized.addEventListener('mousedown', selectInputFinalized);
 
 document.body.addEventListener('touchstart', function (event) {
   event.preventDefault();
