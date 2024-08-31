@@ -1,5 +1,6 @@
 let puzzle = '600050007030000000080409200015300000008000300000007590009501030000000080200070004';
 puzzle = '100800570000009210090040000300900050007000300020006008000020040071400000064007003';
+
 function solve(state, i=0) {
   if (i === 81) {
     return state;
@@ -38,6 +39,16 @@ function solve(state, i=0) {
   }
 }
 
+function updateInputDigitStats() {
+  for (let i of Array.from(document.getElementsByClassName('inputdigit'))) {
+    let c = 9;
+    for (let e of Array.from(document.getElementsByClassName('centry'))) {
+      c -= e.innerText === i.innerText;
+    }
+    i.setAttribute('data-stats', c || '');
+  }
+}
+
 let solution = solve(puzzle.split(''));
 
 function handleEntryClick(event) {
@@ -69,6 +80,7 @@ function handleCentryClick(event) {
   } else {
     window[`c${target.id}`].classList.remove('highlighteddigit');
   }
+  updateInputDigitStats();
   event.preventDefault();
   return false;
 }
@@ -207,3 +219,5 @@ document.body.addEventListener('touchstart', function (event) {
   event.preventDefault();
   return false;
 });
+
+updateInputDigitStats();

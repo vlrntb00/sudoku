@@ -100,8 +100,19 @@ div {
   float: left;
 }
 
+.inputdigit {
+  position: relative;
+}
+
 .inputdigit:nth-child(4), .inputdigit:nth-child(7), .inputdigit:nth-child(10) {
   clear: left;
+}
+
+.inputdigit:after {
+  content: attr(data-stats);
+  position: absolute;
+  font-size: 1.5vh;
+  bottom: 1vh;
 }
 
 .inputhighlight {
