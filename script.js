@@ -82,6 +82,11 @@ function handleCentryClick(event) {
   } else {
     window[`c${target.id}`].classList.remove('highlighteddigit');
   }
+  if (document.querySelectorAll('.centry.hidden').length === 0) {
+    window.inputs.classList.add('nodisplay');
+    window.donemsg.classList.remove('nodisplay');
+    document.body.classList.add('done');
+  }
   updateInputDigitStats();
   event.preventDefault();
   return false;

@@ -92,6 +92,15 @@ div {
   visibility: hidden;
 }
 
+.nodisplay {
+  display: none;
+}
+
+#donemsg {
+  font-family: cursive;
+  color: #8BE9FD;
+}
+
 #inputs > div {
   border: 2px solid #44475A;
   border-radius: 1vh;
@@ -128,3 +137,18 @@ div {
   color: #8BE9FD;
 }
 
+body.done {
+  animation-duration: 1s;
+  animation-name: done;
+  translate: 0 15vh;
+}
+
+@keyframes done {
+  0% {
+    translate: 0 0;
+  }
+
+  100% {
+    translate: 0 15vh;
+  }
+}
