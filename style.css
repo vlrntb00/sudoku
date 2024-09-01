@@ -88,7 +88,7 @@ div {
   color: #F1FA8C;
 }
 
-.hidden {
+.hidden, :not(.hidden) + .sentry {
   visibility: hidden;
 }
 

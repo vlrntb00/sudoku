@@ -54,6 +54,7 @@ let solution = solve(puzzle.split(''));
 
 function handleEntryClick(event) {
   for (let e of Array.from(document.getElementsByClassName('highlighted'))) {
+    if (e === this) continue;
     e.classList.remove('highlighted');
   }
   this.classList.toggle('highlighted');
